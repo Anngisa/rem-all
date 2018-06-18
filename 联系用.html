@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=devide-width,initical-scale=1,user-scalable=no">
+	<title>Document</title>
+	<style>
+		body{
+			margin:0;
+		}
+		canvas{
+			background-color: #000;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<canvas class="rain"></canvas>
+	<script>
+		/*
+		1.canvas元素和浏览器窗口高度一致	
+			获取canvas
+			获取浏览器的高，存起来
+			给canvas设置宽高
+		2。使用canva绘制图形
+			绘制圆形
+			绘制矩形
+			2.1获取canvas可绘制区域
+			2.2绘制有颜色图像
+		3.绘制会动图形
+			动画：
+				1s内播放多张静态图片实现动画
+				帧
+				1s内画60帧(位置，形状，大小)
+				每隔1/60s画一帧
+				定时器
+		4.会动的雨滴
+		5.绘制250个雨滴
+			每隔多久下雨200ms
+		*/
+		var canvas=document.querySelector(".rain");
+		var w,h;
+		function setSize(){
+			window.onresize=arguments.callee;
+			w=window.innerWidth;
+			h=window.innerHeight;
+			canvas.width=w;
+			canvas.height=h;
+		};
+		setSize();
+		var canCon=canvas.getContext('2d');
+/*		canCon.strokeStyle="red";
+
+		canCon.rect(100,50,200,300);
+		canCon.arc(233,233,66,0,360*Math.PI*2)
+		canCon.stroke();*/
+
+		var y=0;
+		setInterval(function(){
+			canCon.beginPath();
+			//canCon.clearRect(0,0,w,h);
+			canCon.fillStyle="rgba(0,0,0,0.05)";
+			canCon.fillRect(0,0,w,h);
+			
+
+			canCon.fillStyle="white";
+			canCon.fillRect(100,y++,4,10)
+			
+		},1000/60)
+
+		function random(min,max){
+			return Math.random()*(max-min)+min;
+		}
+		function Rain(){
+
+		}
+		
+		Rain.prototype={
+			init:function(){
+				this.x=random(0,w);
+				this.y=0;	
+			},
+			draw:function(){
+				canCon.beginPath();
+				canCon.fillStyle="#ffffff";
+				canCon.fillRect(this.x,this.y,4,10)
+			},
+			move:function(){
+				
+			}
+		}
+		
+		function createRain(num){
+			for(var i=0;i<num;i++){
+				setTimeout(function(){
+					var rain=new Rain();
+					rain.init();
+					rain.draw();
+				},200*i)
+			}
+		}
+		createRain(66);
+
+		var bb=1;
+		function get(bb){
+			bb=3;
+			alert(bb);
+		}
+		get(bb);
+		alert(bb)
+	</script>
+
+
+
+</body>
+</html>
+<!-- 
+面向对象
+
+ -->

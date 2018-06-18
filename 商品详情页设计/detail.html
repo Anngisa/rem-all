@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	
+</head>
+<body>
+	<div class="top_pic">
+		<img src="img/pic1.jpg" alt="">
+		<h3 class="title">皮蛋瘦肉粥</h3>
+		<p class="sell_num">月瘦1132份 <span>好评率100%</span></p>
+		<p class="price">￥24 <s>￥28</s></p>
+		<div class="add_to">加入购物车</div>
+	</div>
+	<div class="goods_detail">
+		<div class="introduce">
+			<h4 class="goods_title1">商品介绍</h4>
+			<p>一碗皮蛋瘦肉粥，总是我到粥店时的不二之选。香浓软滑，饱腹暖心，皮蛋的Q弹与瘦肉的滑嫩伴着粥香溢于满口，让人喝这样的一碗粥也觉得心满意足。</p>
+		</div>
+		<div class="goods_comment">
+			<h4 class="goods_title1">商品评价</h4>
+			<div class="swiper-container1 swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide selecet"><span>全部57</span></div>
+                    <div class="swiper-slide"><span>推荐47</span></div>
+                    <div class="swiper-slide"><span>吐槽10</span></div>
+                </div>
+            </div>
+            <div class="swiper-containerM">
+            	 <div class="swiper-wrapper">
+                    <div class="swiper-slide " >
+                    	<div class="content">
+                    		<p>全部</p>
+                    	</div>
+                    </div>
+                    <div class="swiper-slide " ><span>推荐47</span></div>
+                    <div class="swiper-slide " ><span>吐槽10</span></div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="swiper.min.js"></script>
+	<script type="text/javascript">
+		var hWidth=document.documentElement.getBoundingClientRect().width;
+		var htmlWidth=document.documentElement.clientWidth||document.body.clientWidth;
+		console.log(htmlWidth)
+		var html=document.documentElement;
+		html.style.fontSize=htmlWidth/10+'px';
+
+		var tabsSwiper = new Swiper('.swiper-containerM',{
+        speed:500,
+        onSlideChangeStart: function(){
+            $(".tabsSlide ").removeClass('selecet');
+            $(".tabsSlide").eq(tabsSwiper.activeIndex).addClass('selecet');
+        }
+    });
+	</script>
+</body>
+</html

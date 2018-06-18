@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=devide-width,initial-sacle=1,maximum-scale=1,minimum-scale=1">
+	<style>
+		#box{
+			width:100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+<body>
+	
+	<div id="box"><a href="www.baidu.com">111</a></div>
+	<input type="text">
+	<script>
+		var box=document.getElementById("box");
+		document.addEventListener('touchstart',function(e){
+			e.preventDefault();
+		})
+	</script>
+</head>
+</body>
+</html>
